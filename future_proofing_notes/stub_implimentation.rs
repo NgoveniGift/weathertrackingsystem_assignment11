@@ -1,6 +1,5 @@
 // Stub: FileSystemWeatherReportRepository (future-proofing example)
-// This is a placeholder for a repository that will persist WeatherReport entities to a file system.
-// No full implementation is required.
+
 
 use crate::repository_interface::{Repository, WeatherReport};
 
