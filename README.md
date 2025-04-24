@@ -22,13 +22,13 @@ This assignment implements a flexible persistence repository for the Weather Tra
 - Factory Pattern defined in `/factories/repository_factory.rs`
 - Switchable `StorageType` enum with `InMemory` and stub for `FileSystem`
 
-### 4. 🔮 Future-Proofing
+### 4. Future-Proofing
 - `StorageType::FileSystem` uses `unimplemented!()`
 - Explained in `/documentation/future_proofing_notes.md`
 - Supports easy scale-up to database, file system, or remote API
 - UML class diagram in `/diagrams/uml_persistence_layer.png`
 
-### 5. 🧪 Testing
+### 5. Testing
 - All unit tests in `/tests/tests_inmemory_repositories.rs`
 - Coverage includes:
   - Saving
