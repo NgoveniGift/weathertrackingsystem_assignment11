@@ -1,4 +1,4 @@
-\\ abstraction mechanism
+// abstraction mechanism
 
 use crate::repository_interface::*;
 use crate::repositories::inmemory::{user_repo::InMemoryUserRepository, weather_repo::InMemoryWeatherReportRepository};
