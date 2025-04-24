@@ -1,41 +1,60 @@
-```mermaid
 classDiagram
-    class Repository {
-        <<interface>>
-        +save(entity: T)
-        +find_by_id(id: ID): Option<T>
-        +find_all(): Vec<T>
-        +delete(id: ID)
-    }
 
-    class UserRepository {
-        <<interface>>
-    }
+%% Core Entities
+class User {
+    +String user_id
+    +String name
+    +String email
+}
 
-    class WeatherReportRepository {
-        <<interface>>
-    }
+class WeatherReport {
+    +String report_id
+    +f64 temperature
+    +f64 humidity
+    +f64 wind_speed
+    +String timestamp
+}
 
-    class InMemoryUserRepository
-    class InMemoryWeatherReportRepository
-    class FileSystemWeatherReportRepository {
-        todo!()
-        FileSystem
-        WorkARP
-    }
+%% Generic Repository Interface
+class Repository~ID, T~ {
+    <<interface>>
+    +save(id: ID, entity: T)
+    +find_by_id(id: &ID): Option<&T>
+    +find_all(): Vec<&T>
+    +delete(id: &ID)
+}
 
-    class RepositoryFactory {
-        +get_user_repository()
-        +get_weather_report_repository()
-    }
+%% Entity-specific Repository Interfaces
+class UserRepository {
+    <<interface>>
+}
+class WeatherReportRepository {
+    <<interface>>
+}
 
-    Repository <|-- UserRepository
-    Repository <|-- WeatherReportRepository
+%% In-memory Implementations
+class InMemoryUserRepository
+class InMemoryWeatherReportRepository
 
-    UserRepository <|-- InMemoryUserRepository
-    WeatherReportRepository <|-- InMemoryWeatherReportRepository
-    WeatherReportRepository <|-- FileSystemWeatherReportRepository
+%% Stubbed Future Implementation
+class FileSystemWeatherReportRepository {
+    +String file_path
+    +save_all()
+    +load_all()
+}
 
-    RepositoryFactory --> UserRepository
-    RepositoryFactory --> WeatherReportRepository
+%% Factory
+class RepositoryFactory {
+    +get_user_repository(storage: StorageType): Box<UserRepository>
+    +get_weather_report_repository(storage: StorageType): Box<WeatherReportRepository>
+}
+
+%% Relationships
+Repository <|-- UserRepository
+Repository <|-- WeatherReportRepository
+UserRepository <|-- InMemoryUserRepository
+WeatherReportRepository <|-- InMemoryWeatherReportRepository
+WeatherReportRepository <|-- FileSystemWeatherReportRepository
+RepositoryFactory --> UserRepository
+RepositoryFactory --> WeatherReportRepository
 
