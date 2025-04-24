@@ -1,24 +1,24 @@
 # weathertrackingsystem_assignment11
 
-# 🌦️ Assignment 11 – Persistence Layer for Weather Tracking System
+#  Assignment 11 – Persistence Layer for Weather Tracking System
 
 This assignment implements a flexible persistence repository for the Weather Tracking System using a generic interface, in-memory storage, factory-based abstraction, and a stub for future backend extension.
 
 ---
 
-## 📚 Contents
+## Contents
 
-### 1. 🧱 Repository Interfaces
+### 1. Repository Interfaces
 - Generic `Repository<ID, T>` trait in `repository_interface.rs`
 - Entity-specific traits: `UserRepository`, `WeatherReportRepository`
 - Stored in `/repositories/`
 
-### 2. 🧠 In-Memory Implementation
+### 2. In-Memory Implementation
 - Located in `/repositories/inmemory/`
 - Repositories: `InMemoryUserRepository`, `InMemoryWeatherReportRepository`
 - CRUD with `HashMap` storage per entity
 
-### 3. 🏗️ Abstraction Mechanism (Factory)
+### 3. Abstraction Mechanism (Factory)
 - Factory Pattern defined in `/factories/repository_factory.rs`
 - Switchable `StorageType` enum with `InMemory` and stub for `FileSystem`
 
@@ -39,7 +39,7 @@ This assignment implements a flexible persistence repository for the Weather Tra
 
 ---
 
-## 🧠 Design Benefits
+##  Design Benefits
 - Decoupled data access via trait abstraction
 - Easily extendable without modifying client code
 - Factory ensures runtime configurability
@@ -47,7 +47,7 @@ This assignment implements a flexible persistence repository for the Weather Tra
 
 ---
 
-## 📁 File Structure
+##  File Structure
 ```
 weather-tracking-system/
 ├── repositories/
