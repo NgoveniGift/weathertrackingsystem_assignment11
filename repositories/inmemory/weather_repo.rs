@@ -1,3 +1,4 @@
+// in-memory weather repository
 
 use std::collections::HashMap;
 use crate::repository_interface::{Repository, WeatherReport, WeatherReportRepository};
