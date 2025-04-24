@@ -1,3 +1,4 @@
+// in-memory user repository
 
 use std::collections::HashMap;
 use crate::repository_interface::{Repository, User, UserRepository};
