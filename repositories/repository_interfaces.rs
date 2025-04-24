@@ -1,4 +1,5 @@
-// Assignment 11: Weather Tracking System - Generic Repository Interface
+// Weather Tracking System - Generic Repository Interface
+
 use std::collections::HashMap;
 use std::fmt::Debug;
 
