@@ -1,6 +1,6 @@
-// tests/tests_inmemory_repositories.rs
 
-use crate::repository_interface::*;
+use crate::repositories::inmemory::{user_repo::InMemoryUserRepository, weather_repo::InMemoryWeatherReportRepository};
+use crate::repository_interface::{Repository, User, WeatherReport};
 
 #[test]
 fn test_user_repository_crud() {
@@ -41,4 +41,3 @@ fn test_weather_report_repository_crud() {
     repo.delete(&"r1".into());
     assert!(repo.find_by_id(&"r1".into()).is_none());
 }
-
